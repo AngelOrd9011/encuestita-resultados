@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SurveyApplication from "./components/Survey";
 import useFetchData from "./hooks/useFetchData";
+import Answers from "./components/Answers";
 
 function App() {
   const [data, setData] = useState(null);
@@ -13,13 +13,15 @@ function App() {
   };
 
   useEffect(() => {
-    executeFetch();
+    setInterval(() => {
+      executeFetch();
+    }, 3000);
   }, []);
 
   return (
     <main className="grid">
       <div className="col-12 md:col-10 md:col-offset-1">
-        {data && <SurveyApplication encuesta={data.encuesta} />}
+        {data && <Answers respuestas={data.respuestas} />}
       </div>
     </main>
   );
