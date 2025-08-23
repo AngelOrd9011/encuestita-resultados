@@ -1,0 +1,52 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #000;
+  background-color: #f8f9fa;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #611232;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #611232;
+}
+
+main {
+  margin: 0 !important;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  color: #611232;
+}
+
+.sd-btn--action {
+  background-color: #611232 !important;
+}
+
+.sd-title.sd-container-modern__title {
+  box-shadow: 0px 2px 0px #611232 !important;
+}
+
+.sd-header__text .sd-title {
+  color: #611232 !important;
+}
+.sd-boolean__thumb {
+  color: #611232 !important;
+}
