@@ -8,16 +8,21 @@ const Answers = ({ respuestas }) => {
   }, [respuestas]);
   return (
     <div className="grid">
-      <div className="col-12 md:col-1">
-        {" "}
+      <div className="col-12 md:col-4">
+        <h1>QR de la encuesta</h1>
+      </div>
+      <div className="col-12 md:col-8">
+        <h1>Gráficas de resultados</h1>
+      </div>
+      <div className="col-12 md:col-4">
         <QRCode
           value="https://angelord9011.github.io/encuestita"
-          size={256}
           bgColor="#ffffff"
           fgColor="#000000"
+          style={{ width: "80%", height: "auto" }}
         />
       </div>
-      <div className="col-12 md:col-11">
+      <div className="col-12 md:col-8">
         <h3>{JSON.stringify(answers)}</h3>
       </div>
     </div>
