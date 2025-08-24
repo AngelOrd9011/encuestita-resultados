@@ -18,7 +18,7 @@ const Answers = ({ respuestas, preguntas }) => {
   };
 
   useEffect(() => {
-    respuestas.forEach((r) => {
+    respuestas?.forEach((r) => {
       for (let q in r) {
         if (r[q]) chartsObj[q].verdadero += 1;
         else chartsObj[q].falso += 1;
@@ -30,23 +30,21 @@ const Answers = ({ respuestas, preguntas }) => {
   return (
     <div className="grid">
       <div className="col-12 md:col-4">
-        <h1>QR de la encuesta</h1>
+        <h1 className="text-center">QR de la encuesta</h1>
+        <div className="flex justify-content-center">
+          <QRCode
+            value="https://angelord9011.github.io/encuestita"
+            bgColor="#ffffff"
+            fgColor="#000000"
+            style={{ width: "80%", height: "auto" }}
+          />
+        </div>
       </div>
       <div className="col-12 md:col-8">
-        <h1>Gráficas de resultados</h1>
-      </div>
-      <div className="col-12 md:col-4">
-        <QRCode
-          value="https://angelord9011.github.io/encuestita"
-          bgColor="#ffffff"
-          fgColor="#000000"
-          style={{ width: "80%", height: "auto" }}
-        />
-      </div>
-      <div className="col-12 md:col-8">
+        <h1 className="text-center">Gráficas de resultados</h1>
         {answers && (
           <div className="grid">
-            {preguntas.map((p) => {
+            {preguntas?.map((p) => {
               return (
                 <div className="col-12 md:col-6" key={p.name}>
                   <h4>{p.title}</h4>
