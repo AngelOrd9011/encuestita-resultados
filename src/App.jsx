@@ -15,13 +15,18 @@ function App() {
   useEffect(() => {
     setInterval(() => {
       executeFetch();
-    }, 3000);
+    }, 5000);
   }, []);
 
   return (
     <main className="grid">
       <div className="col-12 md:col-10 md:col-offset-1">
-        {data && <Answers respuestas={data.respuestas} />}
+        {data && (
+          <Answers
+            respuestas={data.respuestas}
+            preguntas={data?.encuesta?.pages?.[0]?.elements}
+          />
+        )}
       </div>
     </main>
   );
