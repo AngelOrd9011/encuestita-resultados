@@ -43,7 +43,7 @@ const Answers = ({ respuestas, preguntas }) => {
               return (
                 <div className="col-12 md:col-6" key={p.name}>
                   <h4>{p.title}</h4>
-                  <span>{answers[p.name]?.correcta}</span>
+                  <span dangerouslySetInnerHTML={{ __html: answers[p.name]?.correcta }} />
                   <ChartAnswer
                     verdadero={answers[p.name].verdadero}
                     falso={answers[p.name].falso}
