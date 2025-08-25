@@ -1,20 +1,15 @@
-import { useEffect, useState } from "react";
-import QRCode from "react-qr-code";
-import ChartAnswer from "./ChartAnswer";
+import { useEffect, useState } from 'react';
+import QRCode from 'react-qr-code';
+import ChartAnswer from './ChartAnswer';
 
 const Answers = ({ respuestas, preguntas }) => {
   const [answers, setAnswers] = useState(null);
   let chartsObj = {
-    question1: { verdadero: 0, falso: 0 },
-    question2: { verdadero: 0, falso: 0 },
-    question3: { verdadero: 0, falso: 0 },
-    question4: { verdadero: 0, falso: 0 },
-    question5: { verdadero: 0, falso: 0 },
-    question6: { verdadero: 0, falso: 0 },
-    question7: { verdadero: 0, falso: 0 },
-    question8: { verdadero: 0, falso: 0 },
-    question9: { verdadero: 0, falso: 0 },
-    question10: { verdadero: 0, falso: 0 },
+    question1: { verdadero: 0, falso: 0, correcta: '<b>Falso.</b> Aumentó de 35.0% en 2010 a 45.3% en 2025' },
+    question2: { verdadero: 0, falso: 0, correcta: '<b>Verdadero.</b> Va de enlace (P) hasta K' },
+    question3: { verdadero: 0, falso: 0, correcta: '<b>Falso.</b> Les aplica a todas las instituciones' },
+    question4: { verdadero: 0, falso: 0, correcta: '<b>Verdadero.</b>' },
+    question5: { verdadero: 0, falso: 0, correcta: '<b>Falso.</b> Es TrabajaEn' },
   };
 
   useEffect(() => {
@@ -36,7 +31,7 @@ const Answers = ({ respuestas, preguntas }) => {
             value="https://angelord9011.github.io/encuestita"
             bgColor="#ffffff"
             fgColor="#000000"
-            style={{ width: "80%", height: "auto" }}
+            style={{ width: '80%', height: 'auto' }}
           />
         </div>
       </div>
@@ -48,6 +43,7 @@ const Answers = ({ respuestas, preguntas }) => {
               return (
                 <div className="col-12 md:col-6" key={p.name}>
                   <h4>{p.title}</h4>
+                  <span>{answers[p.name]?.correcta}</span>
                   <ChartAnswer
                     verdadero={answers[p.name].verdadero}
                     falso={answers[p.name].falso}
