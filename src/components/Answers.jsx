@@ -5,11 +5,27 @@ import ChartAnswer from './ChartAnswer';
 const Answers = ({ respuestas, preguntas }) => {
   const [answers, setAnswers] = useState(null);
   let chartsObj = {
-    question1: { verdadero: 0, falso: 0, correcta: '<b>Falso.</b> Aumentó de 35.0% en 2010 a 45.3% en 2025' },
-    question2: { verdadero: 0, falso: 0, correcta: '<b>Verdadero.</b> Va de enlace (P) hasta K' },
-    question3: { verdadero: 0, falso: 0, correcta: '<b>Falso.</b> Les aplica a todas las instituciones' },
+    question1: {
+      verdadero: 0,
+      falso: 0,
+      correcta: '<b>Falso.</b> Aumentó de 35.0% en 2010 a 45.3% en 2025',
+    },
+    question2: {
+      verdadero: 0,
+      falso: 0,
+      correcta: '<b>Verdadero.</b> Va de enlace (P) hasta K',
+    },
+    question3: {
+      verdadero: 0,
+      falso: 0,
+      correcta: '<b>Falso.</b> Les aplica a todas las instituciones',
+    },
     question4: { verdadero: 0, falso: 0, correcta: '<b>Verdadero.</b>' },
-    question5: { verdadero: 0, falso: 0, correcta: '<b>Falso.</b> Es TrabajaEn' },
+    question5: {
+      verdadero: 0,
+      falso: 0,
+      correcta: '<b>Falso.</b> Es TrabajaEn',
+    },
   };
 
   useEffect(() => {
@@ -43,7 +59,7 @@ const Answers = ({ respuestas, preguntas }) => {
               return (
                 <div className="col-12 md:col-6" key={p.name}>
                   <h4>{p.title}</h4>
-                  <span dangerouslySetInnerHTML={{ __html: answers[p.name]?.correcta }} />
+                  {/* <span dangerouslySetInnerHTML={{ __html: answers[p.name]?.correcta }} /> */}
                   <ChartAnswer
                     verdadero={answers[p.name].verdadero}
                     falso={answers[p.name].falso}
