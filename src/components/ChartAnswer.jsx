@@ -34,15 +34,13 @@ const ChartAnswer = ({ answers = {}, total }) => {
   }, [answers, total]);
 
   return (
-    <div className="justify-content-center">
-      <div className="card flex ">
-        <Chart
-          type="pie"
-          data={chart}
-          options={lightOptions}
-          style={{ position: 'relative', width: '80%' }}
-        />
-      </div>
+    <div className="card flex justify-content-center">
+      <Chart
+        type="pie"
+        data={chart}
+        options={lightOptions}
+        style={{ position: 'relative', width: '80%' }}
+      />
     </div>
   );
 };

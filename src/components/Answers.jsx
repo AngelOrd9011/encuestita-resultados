@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import QRCode from 'react-qr-code';
 import ChartAnswer from './ChartAnswer';
+import { TextAnswer } from './TextAnswer';
 
 const Answers = ({ respuestas, preguntas }) => {
   const [answers, setAnswers] = useState(null);
@@ -46,12 +47,20 @@ const Answers = ({ respuestas, preguntas }) => {
         </div>
       </div>
       <div className="col-12 md:col-8">
-        <h1 className="text-center">Gráficas de resultados</h1>
+        <h1 className="text-center">Resultados</h1>
         {answers && (
           <div className="grid">
             {preguntas?.map((p) => {
+              if (p.type === 'text') {
+                return (
+                  <div className="col-12">
+                    <h4>{p.title}</h4>
+                    <TextAnswer answers={answers[p?.name]} />
+                  </div>
+                );
+              }
               return (
-                <div className="col-12 md:col-6" key={p?.name}>
+                <div className="col-12" key={p?.name}>
                   <h4>{p.title}</h4>
                   <ChartAnswer
                     answers={answers[p?.name]}
