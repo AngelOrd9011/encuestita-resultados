@@ -1,33 +1,37 @@
-import { Chart } from "primereact/chart";
-import { useMemo, useState } from "react";
+import { Chart } from 'primereact/chart';
+import { useMemo, useState } from 'react';
 
-const ChartAnswer = ({ verdadero, falso, total }) => {
+const ChartAnswer = ({ answers = {}, total }) => {
   const [lightOptions] = useState({
     plugins: {
       legend: {
         labels: {
-          color: "#495057",
+          color: '#495057',
         },
       },
     },
   });
 
   const chart = useMemo(() => {
-    let labels = [
-      `Verdadero ${total ? ((100 / total) * verdadero).toFixed(1) : 0}%`,
-      `Falso  ${total ? ((100 / total) * falso).toFixed(1) : 0}%`,
-    ];
+    let labels = Object?.keys(answers)?.length
+      ? Object?.keys(answers).map((key) => {
+          return `${key}: ${
+            total ? ((100 / total) * answers[key]).toFixed(1) : 0
+          }%`;
+        })
+      : [];
+
+    let data = Object?.values(answers)?.length ? Object?.values(answers) : [];
 
     return {
       labels,
       datasets: [
         {
-          data: [verdadero, falso],
-          backgroundColor: ["#feedaf", "#c8e6c9"],
+          data,
         },
       ],
     };
-  }, [verdadero, falso, total]);
+  }, [answers, total]);
 
   return (
     <div className="justify-content-center">
@@ -36,7 +40,7 @@ const ChartAnswer = ({ verdadero, falso, total }) => {
           type="pie"
           data={chart}
           options={lightOptions}
-          style={{ position: "relative", width: "80%" }}
+          style={{ position: 'relative', width: '80%' }}
         />
       </div>
     </div>

@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const useFetchData = () => {
-  const api_uri =
-    "https://kong-estandarizacion.buengobierno.gob.mx/diep/encuesta";
-  // const api_uri = "http://localhost:4002/v1/api/encuesta";
+  //const api_uri = "https://kong-estandarizacion.buengobierno.gob.mx/diep/encuesta";
+  const api_uri = 'http://localhost:4001/v1/api/encuesta';
   const [loadingData, setLoadingData] = useState(false);
 
   const fetchData = async (path, method, body) => {
@@ -11,12 +10,12 @@ const useFetchData = () => {
     let options = {
       method,
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
     };
 
-    if (method !== "GET") options.body = JSON.stringify(body);
+    if (method !== 'GET') options.body = JSON.stringify(body);
 
     let data = await fetch(`${api_uri}${path}`, options)
       .then((res) => res?.json())

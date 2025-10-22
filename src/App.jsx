@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import useFetchData from "./hooks/useFetchData";
-import Answers from "./components/Answers";
+import { useEffect, useState } from 'react';
+import Answers from './components/Answers';
+import useFetchData from './hooks/useFetchData';
 
 function App() {
   const [data, setData] = useState(null);
   const { fetchData } = useFetchData();
 
   const executeFetch = async () => {
-    await fetchData("/survey/", "POST", {
-      id: "68a8f5c85e6b02b365661338",
+    await fetchData('/survey/', 'POST', {
+      id: '68f6b8fe18ac1edb403d5b04',
     }).then((_data) => setData(_data));
   };
 
   useEffect(() => {
     setInterval(() => {
       executeFetch();
-    }, 5000);
+    }, 10000);
   }, []);
 
   return (
