@@ -6,7 +6,10 @@ export const TextAnswer = ({ answers = {}, total = 0 }) => {
     return _words;
   }, [answers]);
   return (
-    <div className="card flex justify-content-center">
+    <div
+      className="card flex flex-column justify-content-center"
+      style={{ width: '100%' }}
+    >
       {words?.map((_word) => {
         let word = isNaN(_word) ? _word : `(${_word})`;
         let rem = answers[_word] >= 15 ? 15 : answers[_word];
@@ -16,7 +19,6 @@ export const TextAnswer = ({ answers = {}, total = 0 }) => {
               fontSize: `${rem}em`,
               marginLeft: '1rem',
               color: '#611232',
-              display: 'block',
             }}
           >
             {word}

@@ -46,7 +46,7 @@ const Answers = ({ respuestas, preguntas }) => {
         <div className="grid">
           {preguntas?.map((p) => {
             return (
-              <div className="col-12" style={{ display: 'block' }}>
+              <div className="col-12">
                 <h4>{p.title}</h4>
                 <TextAnswer
                   answers={answers[p?.name]}
