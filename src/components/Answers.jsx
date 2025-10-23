@@ -1,10 +1,11 @@
+import { Button } from 'primereact/button';
 import { useEffect, useState } from 'react';
-import QRCode from 'react-qr-code';
-import ChartAnswer from './ChartAnswer';
+import { QRCodeDialog } from './QRCodeDialog';
 import { TextAnswer } from './TextAnswer';
 
 const Answers = ({ respuestas, preguntas }) => {
   const [answers, setAnswers] = useState(null);
+  const [dialog, setDialog] = useState(false);
   let chartsObj = {};
 
   useEffect(() => {
@@ -30,45 +31,31 @@ const Answers = ({ respuestas, preguntas }) => {
         }
       }
     });
-    console.log(chartsObj);
     setAnswers(chartsObj);
   }, [respuestas]);
 
+  const onHide = () => {
+    setDialog(false);
+  };
+
   return (
     <div className="grid">
-      <div className="col-12 md:col-4">
-        <h1 className="text-center">QR de la encuesta</h1>
-        <div className="flex justify-content-center">
-          <QRCode
-            value="https://angelord9011.github.io/encuestita"
-            bgColor="#ffffff"
-            fgColor="#000000"
-            style={{ width: '80%', height: 'auto' }}
-          />
-        </div>
-      </div>
-      <div className="col-12 md:col-8">
+      <Button
+        label="Código QR"
+        icon="pi pi-qrcode"
+        onClick={() => setDialog(true)}
+      />
+      <div className="col-12 md:col-12">
         <h1 className="text-center">Resultados</h1>
         {answers && (
           <div className="grid">
             {preguntas?.map((p) => {
-              if (p.type === 'text') {
-                return (
-                  <div className="col-12" style={{ overflowX: 'visible' }}>
-                    <h4>{p.title}</h4>
-                    <TextAnswer
-                      answers={answers[p?.name]}
-                      total={respuestas?.length}
-                    />
-                  </div>
-                );
-              }
               return (
-                <div className="col-12" key={p?.name}>
+                <div className="col-12 md:col-6" style={{ display: 'block' }}>
                   <h4>{p.title}</h4>
-                  <ChartAnswer
+                  <TextAnswer
                     answers={answers[p?.name]}
-                    total={respuestas.length}
+                    total={respuestas?.length}
                   />
                 </div>
               );
@@ -76,6 +63,7 @@ const Answers = ({ respuestas, preguntas }) => {
           </div>
         )}
       </div>
+      <QRCodeDialog show={dialog} onHide={onHide} />
     </div>
   );
 };
