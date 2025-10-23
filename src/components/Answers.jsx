@@ -30,6 +30,7 @@ const Answers = ({ respuestas, preguntas }) => {
         }
       }
     });
+    console.log(chartsObj);
     setAnswers(chartsObj);
   }, [respuestas]);
 
@@ -55,7 +56,10 @@ const Answers = ({ respuestas, preguntas }) => {
                 return (
                   <div className="col-12">
                     <h4>{p.title}</h4>
-                    <TextAnswer answers={answers[p?.name]} />
+                    <TextAnswer
+                      answers={answers[p?.name]}
+                      total={respuestas?.length}
+                    />
                   </div>
                 );
               }

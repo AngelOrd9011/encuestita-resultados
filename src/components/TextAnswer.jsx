@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-export const TextAnswer = ({ answers = {} }) => {
+export const TextAnswer = ({ answers = {}, total = 0 }) => {
   const words = useMemo(() => {
     let _words = Object.keys(answers).length ? Object.keys(answers) : [];
     return _words;
@@ -8,10 +8,11 @@ export const TextAnswer = ({ answers = {} }) => {
   return (
     <div className="card flex justify-content-center">
       {words?.map((word) => {
+        let rem = ((answers[word] / total) * 9 + 1)?.toFixed(0);
         return (
           <span
             style={{
-              fontSize: `${answers[word] > 10 ? 10 : answers[word]}em`,
+              fontSize: `${rem}em`,
               marginLeft: '1rem',
               color: '#611232',
             }}
