@@ -9,7 +9,7 @@ export const TextAnswer = ({ answers = {}, total = 0 }) => {
     <div className="card flex justify-content-center">
       {words?.map((_word) => {
         let word = isNaN(_word) ? _word : `(${_word})`;
-        let rem = answers[word] >= 15 ? 15 : answers[word];
+        let rem = answers[_word] >= 15 ? 15 : answers[_word];
         return (
           <span
             style={{
