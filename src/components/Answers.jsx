@@ -40,11 +40,7 @@ const Answers = ({ respuestas, preguntas }) => {
 
   return (
     <>
-      <Button
-        label="Código QR"
-        icon="pi pi-qrcode"
-        onClick={() => setDialog(true)}
-      />
+      <Button label="Código QR" onClick={() => setDialog(true)} />
       <h1 className="text-center">Resultados</h1>
       {answers && (
         <div className="grid">
