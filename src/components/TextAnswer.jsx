@@ -11,15 +11,17 @@ export const TextAnswer = ({ answers = {}, total = 0 }) => {
         let word = isNaN(_word) ? _word : `(${_word})`;
         let rem = answers[_word] >= 15 ? 15 : answers[_word];
         return (
-          <span
-            style={{
-              fontSize: `${rem}em`,
-              marginLeft: '1rem',
-              color: '#611232',
-            }}
-          >
-            {word}
-          </span>
+          <div>
+            <span
+              style={{
+                fontSize: `${rem}em`,
+                marginLeft: '1rem',
+                color: '#611232',
+              }}
+            >
+              {word}
+            </span>
+          </div>
         );
       })}
     </div>
