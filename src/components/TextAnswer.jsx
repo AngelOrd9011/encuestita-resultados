@@ -7,15 +7,16 @@ export const TextAnswer = ({ answers = {}, total = 0 }) => {
   }, [answers]);
   return (
     <div className="card flex justify-content-center">
-      {words?.map((word) => {
-        let rem =
-          answers[word] === 1 ? 1 : ((answers[word] / total) * 10)?.toFixed(0);
+      {words?.map((_word) => {
+        let rem = answers[word] >= 15 ? 15 : answers[word];
+        let word = isNaN(_word) ? _word : `(${_word})`;
         return (
           <span
             style={{
               fontSize: `${rem}em`,
               marginLeft: '1rem',
               color: '#611232',
+              display: 'block',
             }}
           >
             {word}

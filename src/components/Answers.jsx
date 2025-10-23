@@ -39,32 +39,30 @@ const Answers = ({ respuestas, preguntas }) => {
   };
 
   return (
-    <div className="grid">
+    <>
       <Button
         label="Código QR"
         icon="pi pi-qrcode"
         onClick={() => setDialog(true)}
       />
-      <div className="col-12 md:col-12">
-        <h1 className="text-center">Resultados</h1>
-        {answers && (
-          <div className="grid">
-            {preguntas?.map((p) => {
-              return (
-                <div className="col-12 md:col-6" style={{ display: 'block' }}>
-                  <h4>{p.title}</h4>
-                  <TextAnswer
-                    answers={answers[p?.name]}
-                    total={respuestas?.length}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
+      <h1 className="text-center">Resultados</h1>
+      {answers && (
+        <div className="grid">
+          {preguntas?.map((p) => {
+            return (
+              <div className="col-12" style={{ display: 'block' }}>
+                <h4>{p.title}</h4>
+                <TextAnswer
+                  answers={answers[p?.name]}
+                  total={respuestas?.length}
+                />
+              </div>
+            );
+          })}
+        </div>
+      )}
       <QRCodeDialog show={dialog} onHide={onHide} />
-    </div>
+    </>
   );
 };
 
