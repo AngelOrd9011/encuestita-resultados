@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 
-export const TextAnswer = ({ answers = {}, total = 0 }) => {
+export const TextAnswer = ({ answers = {} }) => {
   const words = useMemo(() => {
     let _words = Object.keys(answers).length ? Object.keys(answers) : [];
     return _words;
   }, [answers]);
   return (
-    <div className="flex justify-content-center" style={{ width: '100%' }}>
+    <div className="flex flex-wrap justify-content-center">
       {words?.map((_word) => {
         let word = isNaN(_word) ? _word : `(${_word})`;
         let rem = answers[_word] >= 15 ? 15 : answers[_word];
