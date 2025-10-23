@@ -54,7 +54,7 @@ const Answers = ({ respuestas, preguntas }) => {
             {preguntas?.map((p) => {
               if (p.type === 'text') {
                 return (
-                  <div className="col-12">
+                  <div className="col-12" style={{ overflowX: 'visible' }}>
                     <h4>{p.title}</h4>
                     <TextAnswer
                       answers={answers[p?.name]}

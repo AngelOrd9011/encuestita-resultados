@@ -8,7 +8,8 @@ export const TextAnswer = ({ answers = {}, total = 0 }) => {
   return (
     <div className="card flex justify-content-center">
       {words?.map((word) => {
-        let rem = ((answers[word] / total) * 9 + 1)?.toFixed(0);
+        let rem =
+          answers[word] === 1 ? 1 : ((answers[word] / total) * 10)?.toFixed(0);
         return (
           <span
             style={{
