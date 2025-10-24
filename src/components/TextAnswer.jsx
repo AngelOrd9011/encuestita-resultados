@@ -5,36 +5,6 @@ export const TextAnswer = ({ answers = {} }) => {
     let _words = Object.keys(answers).length ? Object.keys(answers) : [];
     return _words;
   }, [answers]);
-  function aleatorio(inferior, superior) {
-    let numPosibilidades = superior - inferior;
-    let aleatorio = Math.random() * numPosibilidades;
-    aleatorio = Math.floor(aleatorio);
-    return parseInt(inferior) + aleatorio;
-  }
-
-  let hexadecimal = new Array(
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
-    'F'
-  );
-  let color_aleatorio = '#';
-  for (let i = 0; i < 6; i++) {
-    let posarray = aleatorio(0, hexadecimal.length);
-    color_aleatorio += hexadecimal[posarray];
-  }
   return (
     <div className="flex flex-wrap justify-content-center">
       {words?.map((_word) => {
@@ -45,7 +15,7 @@ export const TextAnswer = ({ answers = {} }) => {
             style={{
               fontSize: `${rem}em`,
               marginLeft: '1rem',
-              color: color_aleatorio,
+              color: '#611232',
               display: 'inline-block',
             }}
           >
